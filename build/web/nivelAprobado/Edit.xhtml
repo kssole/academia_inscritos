@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNivelAprobadoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditNivelAprobadoLabel_idNivelAprobado}" for="idNivelAprobado" />
+                    <h:inputText id="idNivelAprobado" value="#{nivelAprobadoController.selected.idNivelAprobado}" title="#{bundle.EditNivelAprobadoTitle_idNivelAprobado}" required="true" requiredMessage="#{bundle.EditNivelAprobadoRequiredMessage_idNivelAprobado}"/>
+                    <h:outputLabel value="#{bundle.EditNivelAprobadoLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{nivelAprobadoController.selected.estado}" title="#{bundle.EditNivelAprobadoTitle_estado}" required="true" requiredMessage="#{bundle.EditNivelAprobadoRequiredMessage_estado}"/>
+                    <h:outputLabel value="#{bundle.EditNivelAprobadoLabel_idEstudiantes}" for="idEstudiantes" />
+                    <h:inputText id="idEstudiantes" value="#{nivelAprobadoController.selected.idEstudiantes}" title="#{bundle.EditNivelAprobadoTitle_idEstudiantes}" required="true" requiredMessage="#{bundle.EditNivelAprobadoRequiredMessage_idEstudiantes}"/>
+                    <h:outputLabel value="#{bundle.EditNivelAprobadoLabel_idNivel}" for="idNivel" />
+                    <h:inputText id="idNivel" value="#{nivelAprobadoController.selected.idNivel}" title="#{bundle.EditNivelAprobadoTitle_idNivel}" required="true" requiredMessage="#{bundle.EditNivelAprobadoRequiredMessage_idNivel}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{nivelAprobadoController.update}" value="#{bundle.EditNivelAprobadoSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditNivelAprobadoViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{nivelAprobadoController.prepareList}" value="#{bundle.EditNivelAprobadoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditNivelAprobadoIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

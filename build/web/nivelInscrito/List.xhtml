@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListNivelInscritoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListNivelInscritoEmpty}" rendered="#{nivelInscritoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{nivelInscritoController.items.rowCount > 0}">
+                    <h:outputText value="#{nivelInscritoController.pagination.pageFirstItem + 1}..#{nivelInscritoController.pagination.pageLastItem + 1}/#{nivelInscritoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{nivelInscritoController.previous}" value="#{bundle.Previous} #{nivelInscritoController.pagination.pageSize}" rendered="#{nivelInscritoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{nivelInscritoController.next}" value="#{bundle.Next} #{nivelInscritoController.pagination.pageSize}" rendered="#{nivelInscritoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{nivelInscritoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNivelInscritoTitle_idNivelInscrito}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idNivelInscrito}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNivelInscritoTitle_autorizacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.autorizacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNivelInscritoTitle_idEstudiantes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEstudiantes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNivelInscritoTitle_idNivel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idNivel}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{nivelInscritoController.prepareView}" value="#{bundle.ListNivelInscritoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{nivelInscritoController.prepareEdit}" value="#{bundle.ListNivelInscritoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{nivelInscritoController.destroy}" value="#{bundle.ListNivelInscritoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{nivelInscritoController.prepareCreate}" value="#{bundle.ListNivelInscritoCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListNivelInscritoIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

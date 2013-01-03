@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNivelPlanTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_idNivelPlan}" for="idNivelPlan" />
+                    <h:inputText id="idNivelPlan" value="#{nivelPlanController.selected.idNivelPlan}" title="#{bundle.EditNivelPlanTitle_idNivelPlan}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_idNivelPlan}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_nombreNivel}" for="nombreNivel" />
+                    <h:inputText id="nombreNivel" value="#{nivelPlanController.selected.nombreNivel}" title="#{bundle.EditNivelPlanTitle_nombreNivel}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_nombreNivel}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_unidades}" for="unidades" />
+                    <h:inputText id="unidades" value="#{nivelPlanController.selected.unidades}" title="#{bundle.EditNivelPlanTitle_unidades}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_unidades}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_totalHoras}" for="totalHoras" />
+                    <h:inputText id="totalHoras" value="#{nivelPlanController.selected.totalHoras}" title="#{bundle.EditNivelPlanTitle_totalHoras}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_totalHoras}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_idNivel}" for="idNivel" />
+                    <h:inputText id="idNivel" value="#{nivelPlanController.selected.idNivel}" title="#{bundle.EditNivelPlanTitle_idNivel}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_idNivel}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_idAcademiaPlan}" for="idAcademiaPlan" />
+                    <h:inputText id="idAcademiaPlan" value="#{nivelPlanController.selected.idAcademiaPlan}" title="#{bundle.EditNivelPlanTitle_idAcademiaPlan}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_idAcademiaPlan}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_calificacion}" for="calificacion" />
+                    <h:inputText id="calificacion" value="#{nivelPlanController.selected.calificacion}" title="#{bundle.EditNivelPlanTitle_calificacion}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_calificacion}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_idInstructor}" for="idInstructor" />
+                    <h:inputText id="idInstructor" value="#{nivelPlanController.selected.idInstructor}" title="#{bundle.EditNivelPlanTitle_idInstructor}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_idInstructor}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_aula}" for="aula" />
+                    <h:inputText id="aula" value="#{nivelPlanController.selected.aula}" title="#{bundle.EditNivelPlanTitle_aula}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_aula}"/>
+                    <h:outputLabel value="#{bundle.EditNivelPlanLabel_horario}" for="horario" />
+                    <h:inputText id="horario" value="#{nivelPlanController.selected.horario}" title="#{bundle.EditNivelPlanTitle_horario}" required="true" requiredMessage="#{bundle.EditNivelPlanRequiredMessage_horario}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{nivelPlanController.update}" value="#{bundle.EditNivelPlanSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditNivelPlanViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{nivelPlanController.prepareList}" value="#{bundle.EditNivelPlanShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditNivelPlanIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

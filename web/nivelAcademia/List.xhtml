@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListNivelAcademiaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListNivelAcademiaEmpty}" rendered="#{nivelAcademiaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{nivelAcademiaController.items.rowCount > 0}">
+                    <h:outputText value="#{nivelAcademiaController.pagination.pageFirstItem + 1}..#{nivelAcademiaController.pagination.pageLastItem + 1}/#{nivelAcademiaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{nivelAcademiaController.previous}" value="#{bundle.Previous} #{nivelAcademiaController.pagination.pageSize}" rendered="#{nivelAcademiaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{nivelAcademiaController.next}" value="#{bundle.Next} #{nivelAcademiaController.pagination.pageSize}" rendered="#{nivelAcademiaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{nivelAcademiaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNivelAcademiaTitle_idNivel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idNivel}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNivelAcademiaTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNivelAcademiaTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{nivelAcademiaController.prepareView}" value="#{bundle.ListNivelAcademiaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{nivelAcademiaController.prepareEdit}" value="#{bundle.ListNivelAcademiaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{nivelAcademiaController.destroy}" value="#{bundle.ListNivelAcademiaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{nivelAcademiaController.prepareCreate}" value="#{bundle.ListNivelAcademiaCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListNivelAcademiaIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

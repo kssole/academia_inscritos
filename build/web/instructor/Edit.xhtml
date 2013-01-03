@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditInstructorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditInstructorLabel_idInstructor}" for="idInstructor" />
+                    <h:inputText id="idInstructor" value="#{instructorController.selected.idInstructor}" title="#{bundle.EditInstructorTitle_idInstructor}" required="true" requiredMessage="#{bundle.EditInstructorRequiredMessage_idInstructor}"/>
+                    <h:outputLabel value="#{bundle.EditInstructorLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{instructorController.selected.nombre}" title="#{bundle.EditInstructorTitle_nombre}" required="true" requiredMessage="#{bundle.EditInstructorRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditInstructorLabel_apellido}" for="apellido" />
+                    <h:inputText id="apellido" value="#{instructorController.selected.apellido}" title="#{bundle.EditInstructorTitle_apellido}" required="true" requiredMessage="#{bundle.EditInstructorRequiredMessage_apellido}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{instructorController.update}" value="#{bundle.EditInstructorSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditInstructorViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{instructorController.prepareList}" value="#{bundle.EditInstructorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditInstructorIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

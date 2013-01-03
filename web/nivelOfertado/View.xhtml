@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewNivelOfertadoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewNivelOfertadoLabel_idNivelOfertado}"/>
+                    <h:outputText value="#{nivelOfertadoController.selected.idNivelOfertado}" title="#{bundle.ViewNivelOfertadoTitle_idNivelOfertado}"/>
+                    <h:outputText value="#{bundle.ViewNivelOfertadoLabel_cupos}"/>
+                    <h:outputText value="#{nivelOfertadoController.selected.cupos}" title="#{bundle.ViewNivelOfertadoTitle_cupos}"/>
+                    <h:outputText value="#{bundle.ViewNivelOfertadoLabel_idNivel}"/>
+                    <h:outputText value="#{nivelOfertadoController.selected.idNivel}" title="#{bundle.ViewNivelOfertadoTitle_idNivel}"/>
+                    <h:outputText value="#{bundle.ViewNivelOfertadoLabel_idAcademia}"/>
+                    <h:outputText value="#{nivelOfertadoController.selected.idAcademia}" title="#{bundle.ViewNivelOfertadoTitle_idAcademia}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{nivelOfertadoController.destroyAndView}" value="#{bundle.ViewNivelOfertadoDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewNivelOfertadoEditLink}"/>
+                <br />
+                <h:commandLink action="#{nivelOfertadoController.prepareCreate}" value="#{bundle.ViewNivelOfertadoCreateLink}" />
+                <br />
+                <h:commandLink action="#{nivelOfertadoController.prepareList}" value="#{bundle.ViewNivelOfertadoShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewNivelOfertadoIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

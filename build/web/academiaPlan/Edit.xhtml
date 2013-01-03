@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAcademiaPlanTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAcademiaPlanLabel_idAcademiaPlan}" for="idAcademiaPlan" />
+                    <h:inputText id="idAcademiaPlan" value="#{academiaPlanController.selected.idAcademiaPlan}" title="#{bundle.EditAcademiaPlanTitle_idAcademiaPlan}" required="true" requiredMessage="#{bundle.EditAcademiaPlanRequiredMessage_idAcademiaPlan}"/>
+                    <h:outputLabel value="#{bundle.EditAcademiaPlanLabel_periodo}" for="periodo" />
+                    <h:inputText id="periodo" value="#{academiaPlanController.selected.periodo}" title="#{bundle.EditAcademiaPlanTitle_periodo}" required="true" requiredMessage="#{bundle.EditAcademiaPlanRequiredMessage_periodo}"/>
+                    <h:outputLabel value="#{bundle.EditAcademiaPlanLabel_idAcademia}" for="idAcademia" />
+                    <h:inputText id="idAcademia" value="#{academiaPlanController.selected.idAcademia}" title="#{bundle.EditAcademiaPlanTitle_idAcademia}" required="true" requiredMessage="#{bundle.EditAcademiaPlanRequiredMessage_idAcademia}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{academiaPlanController.update}" value="#{bundle.EditAcademiaPlanSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditAcademiaPlanViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{academiaPlanController.prepareList}" value="#{bundle.EditAcademiaPlanShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditAcademiaPlanIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

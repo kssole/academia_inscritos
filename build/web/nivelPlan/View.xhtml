@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewNivelPlanTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_idNivelPlan}"/>
+                    <h:outputText value="#{nivelPlanController.selected.idNivelPlan}" title="#{bundle.ViewNivelPlanTitle_idNivelPlan}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_nombreNivel}"/>
+                    <h:outputText value="#{nivelPlanController.selected.nombreNivel}" title="#{bundle.ViewNivelPlanTitle_nombreNivel}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_unidades}"/>
+                    <h:outputText value="#{nivelPlanController.selected.unidades}" title="#{bundle.ViewNivelPlanTitle_unidades}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_totalHoras}"/>
+                    <h:outputText value="#{nivelPlanController.selected.totalHoras}" title="#{bundle.ViewNivelPlanTitle_totalHoras}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_idNivel}"/>
+                    <h:outputText value="#{nivelPlanController.selected.idNivel}" title="#{bundle.ViewNivelPlanTitle_idNivel}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_idAcademiaPlan}"/>
+                    <h:outputText value="#{nivelPlanController.selected.idAcademiaPlan}" title="#{bundle.ViewNivelPlanTitle_idAcademiaPlan}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_calificacion}"/>
+                    <h:outputText value="#{nivelPlanController.selected.calificacion}" title="#{bundle.ViewNivelPlanTitle_calificacion}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_idInstructor}"/>
+                    <h:outputText value="#{nivelPlanController.selected.idInstructor}" title="#{bundle.ViewNivelPlanTitle_idInstructor}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_aula}"/>
+                    <h:outputText value="#{nivelPlanController.selected.aula}" title="#{bundle.ViewNivelPlanTitle_aula}"/>
+                    <h:outputText value="#{bundle.ViewNivelPlanLabel_horario}"/>
+                    <h:outputText value="#{nivelPlanController.selected.horario}" title="#{bundle.ViewNivelPlanTitle_horario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{nivelPlanController.destroyAndView}" value="#{bundle.ViewNivelPlanDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewNivelPlanEditLink}"/>
+                <br />
+                <h:commandLink action="#{nivelPlanController.prepareCreate}" value="#{bundle.ViewNivelPlanCreateLink}" />
+                <br />
+                <h:commandLink action="#{nivelPlanController.prepareList}" value="#{bundle.ViewNivelPlanShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewNivelPlanIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEstudiantesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEstudiantesLabel_idEstudiantes}" for="idEstudiantes" />
+                    <h:inputText id="idEstudiantes" value="#{estudiantesController.selected.idEstudiantes}" title="#{bundle.EditEstudiantesTitle_idEstudiantes}" required="true" requiredMessage="#{bundle.EditEstudiantesRequiredMessage_idEstudiantes}"/>
+                    <h:outputLabel value="#{bundle.EditEstudiantesLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{estudiantesController.selected.nombre}" title="#{bundle.EditEstudiantesTitle_nombre}" required="true" requiredMessage="#{bundle.EditEstudiantesRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditEstudiantesLabel_apellido}" for="apellido" />
+                    <h:inputText id="apellido" value="#{estudiantesController.selected.apellido}" title="#{bundle.EditEstudiantesTitle_apellido}" required="true" requiredMessage="#{bundle.EditEstudiantesRequiredMessage_apellido}"/>
+                    <h:outputLabel value="#{bundle.EditEstudiantesLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{estudiantesController.selected.email}" title="#{bundle.EditEstudiantesTitle_email}" required="true" requiredMessage="#{bundle.EditEstudiantesRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.EditEstudiantesLabel_idUsuario}" for="idUsuario" />
+                    <h:inputText id="idUsuario" value="#{estudiantesController.selected.idUsuario}" title="#{bundle.EditEstudiantesTitle_idUsuario}" required="true" requiredMessage="#{bundle.EditEstudiantesRequiredMessage_idUsuario}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{estudiantesController.update}" value="#{bundle.EditEstudiantesSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditEstudiantesViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{estudiantesController.prepareList}" value="#{bundle.EditEstudiantesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditEstudiantesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

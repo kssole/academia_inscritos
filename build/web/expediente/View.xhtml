@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewExpedienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewExpedienteLabel_idExpediente}"/>
+                    <h:outputText value="#{expedienteController.selected.idExpediente}" title="#{bundle.ViewExpedienteTitle_idExpediente}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteLabel_nivelAprobado}"/>
+                    <h:outputText value="#{expedienteController.selected.nivelAprobado}" title="#{bundle.ViewExpedienteTitle_nivelAprobado}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteLabel_puedeInscribir}"/>
+                    <h:outputText value="#{expedienteController.selected.puedeInscribir}" title="#{bundle.ViewExpedienteTitle_puedeInscribir}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteLabel_estadoAcademico}"/>
+                    <h:outputText value="#{expedienteController.selected.estadoAcademico}" title="#{bundle.ViewExpedienteTitle_estadoAcademico}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteLabel_idEstudiantes}"/>
+                    <h:outputText value="#{expedienteController.selected.idEstudiantes}" title="#{bundle.ViewExpedienteTitle_idEstudiantes}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{expedienteController.destroyAndView}" value="#{bundle.ViewExpedienteDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewExpedienteEditLink}"/>
+                <br />
+                <h:commandLink action="#{expedienteController.prepareCreate}" value="#{bundle.ViewExpedienteCreateLink}" />
+                <br />
+                <h:commandLink action="#{expedienteController.prepareList}" value="#{bundle.ViewExpedienteShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewExpedienteIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

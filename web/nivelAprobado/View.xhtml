@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewNivelAprobadoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewNivelAprobadoLabel_idNivelAprobado}"/>
+                    <h:outputText value="#{nivelAprobadoController.selected.idNivelAprobado}" title="#{bundle.ViewNivelAprobadoTitle_idNivelAprobado}"/>
+                    <h:outputText value="#{bundle.ViewNivelAprobadoLabel_estado}"/>
+                    <h:outputText value="#{nivelAprobadoController.selected.estado}" title="#{bundle.ViewNivelAprobadoTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewNivelAprobadoLabel_idEstudiantes}"/>
+                    <h:outputText value="#{nivelAprobadoController.selected.idEstudiantes}" title="#{bundle.ViewNivelAprobadoTitle_idEstudiantes}"/>
+                    <h:outputText value="#{bundle.ViewNivelAprobadoLabel_idNivel}"/>
+                    <h:outputText value="#{nivelAprobadoController.selected.idNivel}" title="#{bundle.ViewNivelAprobadoTitle_idNivel}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{nivelAprobadoController.destroyAndView}" value="#{bundle.ViewNivelAprobadoDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewNivelAprobadoEditLink}"/>
+                <br />
+                <h:commandLink action="#{nivelAprobadoController.prepareCreate}" value="#{bundle.ViewNivelAprobadoCreateLink}" />
+                <br />
+                <h:commandLink action="#{nivelAprobadoController.prepareList}" value="#{bundle.ViewNivelAprobadoShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewNivelAprobadoIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

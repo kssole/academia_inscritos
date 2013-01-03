@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateExpedienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateExpedienteLabel_idExpediente}" for="idExpediente" />
+                    <h:inputText id="idExpediente" value="#{expedienteController.selected.idExpediente}" title="#{bundle.CreateExpedienteTitle_idExpediente}" required="true" requiredMessage="#{bundle.CreateExpedienteRequiredMessage_idExpediente}"/>
+                    <h:outputLabel value="#{bundle.CreateExpedienteLabel_nivelAprobado}" for="nivelAprobado" />
+                    <h:inputText id="nivelAprobado" value="#{expedienteController.selected.nivelAprobado}" title="#{bundle.CreateExpedienteTitle_nivelAprobado}" required="true" requiredMessage="#{bundle.CreateExpedienteRequiredMessage_nivelAprobado}"/>
+                    <h:outputLabel value="#{bundle.CreateExpedienteLabel_puedeInscribir}" for="puedeInscribir" />
+                    <h:inputText id="puedeInscribir" value="#{expedienteController.selected.puedeInscribir}" title="#{bundle.CreateExpedienteTitle_puedeInscribir}" required="true" requiredMessage="#{bundle.CreateExpedienteRequiredMessage_puedeInscribir}"/>
+                    <h:outputLabel value="#{bundle.CreateExpedienteLabel_estadoAcademico}" for="estadoAcademico" />
+                    <h:inputText id="estadoAcademico" value="#{expedienteController.selected.estadoAcademico}" title="#{bundle.CreateExpedienteTitle_estadoAcademico}" required="true" requiredMessage="#{bundle.CreateExpedienteRequiredMessage_estadoAcademico}"/>
+                    <h:outputLabel value="#{bundle.CreateExpedienteLabel_idEstudiantes}" for="idEstudiantes" />
+                    <h:inputText id="idEstudiantes" value="#{expedienteController.selected.idEstudiantes}" title="#{bundle.CreateExpedienteTitle_idEstudiantes}" required="true" requiredMessage="#{bundle.CreateExpedienteRequiredMessage_idEstudiantes}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{expedienteController.create}" value="#{bundle.CreateExpedienteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{expedienteController.prepareList}" value="#{bundle.CreateExpedienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateExpedienteIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
