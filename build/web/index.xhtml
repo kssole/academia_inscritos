@@ -3,51 +3,95 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
-<h:outputStylesheet name="css/jsfcrud.css"/>
+        <title>Academias UTPL</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="reinstated/style.css"/>
     </h:head>
     <h:body>
-        Sistema de Inscripciones Academias UTPL
-                    <h:form>
-                    <h:commandLink action="/academia/List" value="Listar Academia"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/academiaPlan/List" value="Listar plan de Academia"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/estudiantes/List" value="Listar Estudiantes"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/expediente/List" value="Listar Expediente"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/instructor/List" value="Listar Instructores"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/nivelAcademia/List" value="Listar niveles de Academia"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/nivelAprobado/List" value="Listar Niveles Aprobados"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/nivelInscrito/List" value="Listar nivel inscrito"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/nivelOfertado/List" value="Lister nivel ofertado"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/nivelPlan/List" value="Listar plan de nivel "/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/usuario/List" value="Listar usuarios"/>
-                </h:form>
-</h:body>
+        <div id="wrapper">
+            <div id="header">
+                <h1><a href="/Academia_Inscripciones" style="color: #266482">Sistema de Inscripciones Academias UTPL</a></h1>
+
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="active">
+                        <h:form>
+
+                            <h:commandLink action="/index" value="Inicio" style="color: #FFF"/>                      
+
+                        </h:form>
+                    </li>
+                    <li class="active">
+                        <h:form>
+
+                            <h:commandLink action="/Logueo" value="Logueo" style="color: #FFF"/>                      
+
+                        </h:form>
+                    </li>
+
+                </ul>
+            </div>
+            <div id="page">
+                <div id="page-bgtop">
+                    <div id="page-bgbtm">
+                        <div id="sidebar">
+                            <ul>
+                                <h:form>
+
+                                    <h:commandLink action="/academia/List" value="Listar Academia" style="color: #6B7479"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/academiaPlan/List" value="Listar plan de Academia"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/estudiantes/List" value="Listar Estudiantes"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/expediente/List" value="Listar Expediente"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/instructor/List" value="Listar Instructores"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/nivelAcademia/List" value="Listar niveles de Academia"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/nivelAprobado/List" value="Listar Niveles Aprobados"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/nivelInscrito/List" value="Listar nivel inscrito"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/nivelOfertado/List" value="Lister nivel ofertado"/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/nivelPlan/List" value="Listar plan de nivel "/>
+                                </h:form>
+                                <h:form>
+                                    <h:commandLink action="/usuario/List" value="Listar usuarios"/>
+                                </h:form> </ul>
+                        </div>
 
 
+                    </div>
 
 
+                </div>
 
 
+            </div>
+
+        </div>
+
+
+        <div id="footer">
+            <h:form>
+                <h:commandLink action="/index" value="Kruskaya Salazar - Derechos Reservados 2012"/>     
+            </h:form>
+        </div>
+
+    </h:body>
 
 
 
